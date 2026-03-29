@@ -1,180 +1,675 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Site Bakımda</title>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SADİOĞLU DIŞ TİCARET</title>
 
-		<style>
-			:root {
-				--bg: #0b1220;
-				--card: rgba(255, 255, 255, 0.08);
-				--text: #eef2ff;
-				--muted: rgba(238, 242, 255, 0.75);
-				--border: rgba(255, 255, 255, 0.14);
-			}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-			* {
-				box-sizing: border-box;
-			}
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins, sans-serif;
+}
 
-			body {
-				margin: 0;
-				min-height: 100vh;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				background: radial-gradient(
-						1200px 700px at 50% 20%,
-						rgba(99, 102, 241, 0.25),
-						transparent 60%
-					),
-					radial-gradient(
-						900px 600px at 20% 80%,
-						rgba(16, 185, 129, 0.18),
-						transparent 60%
-					),
-					var(--bg);
-				color: var(--text);
-				font-family: system-ui, -apple-system, BlinkMacSystemFont,
-					"Segoe UI", Roboto, Arial;
-				padding: 24px;
-			}
+html{
+  scroll-behavior:smooth;
+}
 
-			.card {
-				width: min(1000px, 100%);
-				background: var(--card);
-				border: 1px solid var(--border);
-				border-radius: 22px;
-				padding: 32px;
-				backdrop-filter: blur(12px);
-				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-				text-align: center;
-			}
+body{
+  background:#0f172a;
+  color:#fff;
+  line-height:1.7;
+}
 
-			/* BAYRAKLAR */
-			.flags {
-				display: flex;
-				justify-content: center;
-				gap: 24px;
-				margin-bottom: 18px;
-			}
+/* HEADER */
+header{
+  background:rgba(0,0,0,0.6);
+  position:fixed;
+  width:100%;
+  top:0;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
 
-			.flag {
-				font-size: 48px;
-				filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
-			}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
 
-			/* FOTOĞRAF */
-			.hero {
-				border-radius: 22px;
-				overflow: hidden;
-				border: 1px solid rgba(255, 255, 255, 0.18);
-				box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4);
-				max-width: 860px;
-				width: 100%;
-				aspect-ratio: 16 / 10;
-				margin: 0 auto;
-				background: rgba(255, 255, 255, 0.06);
-			}
+.logo img{
+  height:40px;
+}
 
-			.hero img {
-				width: 100%;
-				height: 100%;
-				object-fit: contain;
-				display: block;
-				background: #000;
-			}
+.logo h1{
+  font-size:22px;
+}
 
-			.texts {
-				margin-top: 24px;
-				display: grid;
-				gap: 10px;
-			}
+nav a{
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+  font-size:14px;
+  transition:0.3s;
+}
 
-			.tr {
-				font-size: 28px;
-				font-weight: 700;
-			}
+nav a:hover{
+  color:#38bdf8;
+}
 
-			.ar {
-				font-size: 26px;
-				font-weight: 600;
-				direction: rtl;
-				unicode-bidi: plaintext;
-			}
+/* HERO */
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:120px 20px 40px;
+  animation:fadeIn 1.5s ease;
+}
 
-			.sub {
-				margin-top: 6px;
-				font-size: 14px;
-				color: var(--muted);
-			}
+.hero h2{
+  font-size:42px;
+  margin-bottom:20px;
+}
 
-			.footer {
-				margin-top: 28px;
-				padding-top: 18px;
-				border-top: 1px solid rgba(255, 255, 255, 0.14);
-				font-size: 14px;
-				color: var(--muted);
-				line-height: 1.6;
-			}
+.hero p{
+  max-width:800px;
+  opacity:0.9;
+  font-size:17px;
+  margin:auto;
+}
 
-			.footer-title {
-				font-weight: 600;
-				color: var(--text);
-				margin-bottom: 8px;
-			}
+/* ANIMATION */
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
 
-			.footer a {
-				color: inherit;
-				text-decoration: none;
-				font-weight: 600;
-			}
+/* SECTIONS */
+section{
+  padding:80px 40px;
+}
 
-			.footer a:hover {
-				text-decoration: underline;
-			}
-		</style>
-	</head>
+.container{
+  max-width:1100px;
+  margin:auto;
+}
 
-	<body>
-		<main class="card">
-			<!-- BAYRAKLAR (FOTOĞRAF DIŞINDA) -->
-			<div class="flags">
-				<span class="flag">🇹🇷</span>
-				<span class="flag">🇱🇾</span>
-			</div>
+h3{
+  margin-bottom:20px;
+  font-size:28px;
+  color:#f8fafc;
+}
 
-			<!-- FOTOĞRAF -->
-			<div class="hero">
-				<img src="./photo.jpg" alt="Merkez fotoğraf" />
-			</div>
+.section-text{
+  font-size:16px;
+  color:#cbd5e1;
+}
 
-			<!-- YAZILAR -->
-			<div class="texts">
-				<div class="tr">Site bakımdadır</div>
-				<div class="ar">الموقع قيد الصيانة</div>
-				<div class="sub">En kısa sürede tekrar yayında olacağız.</div>
-			</div>
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
 
-			<!-- FOOTER -->
-			<footer class="footer">
-				<div class="footer-title">İletişim</div>
+.card{
+  background:#1e293b;
+  padding:25px;
+  border-radius:14px;
+  transition:0.3s;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
 
-				<div style="margin-bottom: 10px">
-					📧
-					<a href="mailto:sadiogludisticaretturizm@gmail.com">
-						sadiogludisticaretturizm@gmail.com
-					</a>
-				</div>
+.card:hover{
+  transform:translateY(-5px);
+  background:#334155;
+}
 
-				<div>
-					📍 KEMALPAŞA MAH. 18 SEKBANLAR SK. NO:13<br />
-					İÇ KAPI NO: 43-44-45, LALELİ<br />
-					FATİH / İSTANBUL
-				</div>
-			</footer>
-		</main>
-	</body>
+.card h4{
+  font-size:20px;
+  margin-bottom:12px;
+  color:#f8fafc;
+}
+
+.card p{
+  color:#cbd5e1;
+  font-size:15px;
+}
+
+/* IMAGES */
+.images{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+  margin-top:25px;
+}
+
+.images img{
+  width:100%;
+  border-radius:12px;
+  height:220px;
+  object-fit:cover;
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* MAIL */
+.mail{
+  color:#38bdf8;
+  text-decoration:none;
+}
+
+.mail:hover{
+  text-decoration:underline;
+}
+
+/* LANGUAGE */
+.lang{
+  display:none;
+}
+
+#tr:checked ~ .tr,
+#en:checked ~ .en,
+#ar:checked ~ .ar{
+  display:block;
+}
+
+/* RTL */
+.ar{
+  direction:rtl;
+  text-align:right;
+}
+
+/* LANGUAGE BUTTONS */
+.lang-switch{
+  position:fixed;
+  top:80px;
+  right:20px;
+  z-index:1000;
+}
+
+.lang-switch label{
+  background:#334155;
+  padding:8px 12px;
+  margin-left:5px;
+  cursor:pointer;
+  border-radius:5px;
+  font-size:12px;
+  transition:0.3s;
+}
+
+.lang-switch label:hover{
+  background:#475569;
+}
+
+/* FOOTER */
+footer{
+  background:#020617;
+  padding:40px;
+  text-align:center;
+  font-size:14px;
+  opacity:0.8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px){
+  header{
+    padding:15px 20px;
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .logo h1{
+    font-size:18px;
+  }
+
+  nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  nav a{
+    margin:5px 10px;
+    font-size:13px;
+  }
+
+  .hero h2{
+    font-size:30px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  section{
+    padding:60px 20px;
+  }
+
+  .lang-switch{
+    top:110px;
+    right:15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LANGUAGE SWITCH -->
+<input type="radio" name="lang" id="tr" checked>
+<input type="radio" name="lang" id="en">
+<input type="radio" name="lang" id="ar">
+
+<div class="lang-switch">
+  <label for="tr">TR</label>
+  <label for="en">EN</label>
+  <label for="ar">AR</label>
+</div>
+
+<header>
+  <div class="logo">
+    <img src="logo.jpg" alt="SADİOĞLU DIŞ TİCARET Logo">
+    <h1>SADİOĞLU DIŞ TİCARET</h1>
+  </div>
+
+  <nav>
+    <a href="#about">Hakkımızda</a>
+    <a href="#services">Hizmetler</a>
+    <a href="#operations">Operasyonlarımız</a>
+    <a href="#team">Ekibimiz</a>
+    <a href="#contact">İletişim</a>
+  </nav>
+</header>
+
+<!-- ================= TR ================= -->
+<div class="lang tr">
+
+  <section class="hero">
+    <div>
+      <h2>Türkiye’den Libya’ya Güvenli ve Profesyonel Ticaret</h2>
+      <p>
+        Türkiye genelindeki üretici ve tedarikçileri Libya’daki alıcılarla buluşturarak,
+        güvenilir, hızlı ve profesyonel dış ticaret çözümleri sunuyoruz.
+      </p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h3>Hakkımızda</h3>
+      <p class="section-text">
+        SADİOĞLU DIŞ TİCARET, Türkiye ile Libya arasında güçlü ve sürdürülebilir bir ticaret köprüsü kurmak amacıyla faaliyet göstermektedir.
+        Libya’daki iş ortaklarımızın ihtiyaç duyduğu ürünleri Türkiye genelindeki güvenilir üretici ve tedarikçilerden temin ederek,
+        uçtan uca çözümler sunmaktayız.
+      </p>
+      <br>
+      <p class="section-text">
+        Firmamız; doğru ürün, doğru tedarikçi ve doğru lojistik planlamayı bir araya getirerek müşterilerine güvenli, hızlı ve
+        şeffaf bir ticaret süreci sağlar. Türkiye’deki üreticileri Libyalı alıcılarla buluştururken, her iki taraf için de
+        uzun vadeli ve kazançlı iş birlikleri oluşturmayı hedefler.
+      </p>
+      <br>
+      <p class="section-text">
+        Sektörel tecrübemiz ve geniş tedarikçi ağımız sayesinde, farklı sektörlerdeki talepleri etkin şekilde karşılayarak
+        uluslararası ticarette güvenilir bir çözüm ortağı olarak konumlanmaktayız.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container grid">
+      <div class="card">
+        <h3>Vizyon</h3>
+        <p>
+          Türkiye ile Libya arasındaki ticaret hacmini artıran, güvenilirliği ve profesyonelliği ile öne çıkan,
+          bölgesinde lider ve tercih edilen bir dış ticaret firması olmak.
+          Uluslararası pazarda güçlü iş birlikleri kurarak sürdürülebilir büyüme sağlamak ve müşterilerimize
+          her zaman katma değer sunan çözümler geliştirmek.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Misyon</h3>
+        <p>
+          Libyalı iş ortaklarımızın ihtiyaçlarını doğru analiz ederek, Türkiye’nin güçlü üretim kapasitesi ile buluşturmak;
+          hızlı, güvenilir ve şeffaf ticaret süreçleri sunmak.
+          Müşteri memnuniyetini ön planda tutarak, kaliteli ürün ve hizmetleri zamanında ve sorunsuz şekilde ulaştırmak
+          temel misyonumuzdur.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h3>Hizmetlerimiz</h3>
+      <div class="grid">
+        <div class="card">
+          <h4>Tedarikçi Bulma</h4>
+          <p>Türkiye genelindeki güvenilir üretici ve tedarikçiler ile ihtiyaçlarınıza en uygun ürünleri eşleştiriyoruz.</p>
+        </div>
+
+        <div class="card">
+          <h4>İhracat Yönetimi</h4>
+          <p>Ürünlerin tedarik sürecinden sevkiyata kadar tüm ihracat operasyonlarını profesyonel şekilde yönetiyoruz.</p>
+        </div>
+
+        <div class="card">
+          <h4>Lojistik ve Sevkiyat</h4>
+          <p>Ürünlerin güvenli ve zamanında Libya’ya ulaştırılması için etkin lojistik çözümler sunuyoruz.</p>
+        </div>
+
+        <div class="card">
+          <h4>Ticari Danışmanlık</h4>
+          <p>Uluslararası ticaret süreçlerinde doğru kararlar almanız için uzman danışmanlık hizmeti sağlıyoruz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="operations">
+    <div class="container">
+      <h3>Operasyonlarımız</h3>
+      <p class="section-text">
+        Operasyon süreçlerimiz; ürün seçimi, tedarik, kalite kontrol, paketleme ve lojistik planlama adımlarını kapsar.
+        Türkiye’deki üreticilerden temin edilen ürünler, titizlikle kontrol edilerek uluslararası standartlara uygun şekilde
+        hazırlanır ve Libya’daki müşterilerimize güvenli şekilde ulaştırılır.
+      </p>
+      <div class="images">
+        <img src="container1.jpg" alt="Operasyon 1">
+        <img src="container2.jpg" alt="Operasyon 2">
+        <img src="container3.jpg" alt="Operasyon 3">
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="container">
+      <h3>Ekibimiz</h3>
+      <p class="section-text">
+        Alanında deneyimli ve uluslararası ticaret süreçlerine hakim ekibimiz, müşteri taleplerini en doğru şekilde analiz ederek
+        en uygun çözümleri sunar. Profesyonel yaklaşımımız ve güçlü iletişimimiz sayesinde, iş ortaklarımızla uzun vadeli ve
+        güvene dayalı ilişkiler kurmaktayız.
+      </p>
+      <div class="images">
+        <img src="team1.jpg" alt="Ekip 1">
+        <img src="team2.jpg" alt="Ekip 2">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h3>İletişim</h3>
+      <p>📧 <a class="mail" href="mailto:sadiogludisticaretturizm@gmail.com">sadiogludisticaretturizm@gmail.com</a></p>
+      <p>📍 KEMALPAŞA MAH. 18 SEKBANLAR SK. NO:13<br>FATİH / İSTANBUL</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= EN ================= -->
+<div class="lang en">
+
+  <section class="hero">
+    <div>
+      <h2>Reliable Trade Between Turkey & Libya</h2>
+      <p>
+        We connect trusted Turkish manufacturers and suppliers with Libyan buyers,
+        delivering reliable, fast, and professional foreign trade solutions.
+      </p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h3>About Us</h3>
+      <p class="section-text">
+        SADİOĞLU FOREIGN TRADE operates with the goal of establishing a strong and sustainable trade bridge between Turkey and Libya.
+        We provide end-to-end supply solutions by sourcing the products needed by our Libyan business partners from reliable manufacturers
+        and suppliers across Turkey.
+      </p>
+      <br>
+      <p class="section-text">
+        By combining the right product, the right supplier, and the right logistics planning, our company ensures a secure, fast,
+        and transparent trade process. While bringing Turkish manufacturers together with Libyan buyers, we aim to create long-term
+        and profitable business partnerships for both sides.
+      </p>
+      <br>
+      <p class="section-text">
+        Thanks to our sectoral experience and extensive supplier network, we effectively respond to demands in different industries
+        and position ourselves as a reliable solution partner in international trade.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container grid">
+      <div class="card">
+        <h3>Vision</h3>
+        <p>
+          To become a leading and preferred foreign trade company in the region by increasing the trade volume between Turkey and Libya,
+          standing out with reliability and professionalism, and delivering value-added solutions to our customers through sustainable growth
+          and strong international business partnerships.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Mission</h3>
+        <p>
+          To accurately understand the needs of our Libyan business partners and connect them with Turkey’s strong production capacity;
+          to provide fast, reliable, and transparent trade processes; and to deliver quality products and services on time and without issues
+          while always prioritizing customer satisfaction.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h3>Services</h3>
+      <div class="grid">
+        <div class="card">
+          <h4>Supplier Sourcing</h4>
+          <p>We identify and match your needs with reliable manufacturers and suppliers across Turkey.</p>
+        </div>
+
+        <div class="card">
+          <h4>Export Management</h4>
+          <p>We professionally manage the entire export process, from sourcing to shipment.</p>
+        </div>
+
+        <div class="card">
+          <h4>Logistics & Shipment</h4>
+          <p>We provide efficient logistics solutions to ensure products are delivered to Libya safely and on time.</p>
+        </div>
+
+        <div class="card">
+          <h4>Trade Consulting</h4>
+          <p>We offer expert consulting services to help you make the right decisions in international trade processes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="operations">
+    <div class="container">
+      <h3>Our Operations</h3>
+      <p class="section-text">
+        Our operational processes include product selection, sourcing, quality control, packaging, and logistics planning.
+        Products sourced from manufacturers across Turkey are carefully inspected, prepared in line with international standards,
+        and delivered safely to our customers in Libya.
+      </p>
+      <div class="images">
+        <img src="container1.jpg" alt="Operations 1">
+        <img src="container2.jpg" alt="Operations 2">
+        <img src="container3.jpg" alt="Operations 3">
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="container">
+      <h3>Our Team</h3>
+      <p class="section-text">
+        Our experienced team, specialized in international trade processes, carefully analyzes customer demands and provides the most suitable solutions.
+        With our professional approach and strong communication, we build long-term and trust-based relationships with our business partners.
+      </p>
+      <div class="images">
+        <img src="team1.jpg" alt="Team 1">
+        <img src="team2.jpg" alt="Team 2">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h3>Contact</h3>
+      <p>📧 <a class="mail" href="mailto:sadiogludisticaretturizm@gmail.com">sadiogludisticaretturizm@gmail.com</a></p>
+      <p>📍 Istanbul / Turkey</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ================= AR ================= -->
+<div class="lang ar">
+
+  <section class="hero">
+    <div>
+      <h2>تجارة موثوقة واحترافية بين تركيا وليبيا</h2>
+      <p>
+        نربط المصنعين والموردين الموثوقين في تركيا بالمشترين في ليبيا، ونقدم حلول تجارة خارجية سريعة وآمنة واحترافية.
+      </p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h3>من نحن</h3>
+      <p class="section-text">
+        تعمل شركة SADİOĞLU للتجارة الخارجية بهدف إنشاء جسر تجاري قوي ومستدام بين تركيا وليبيا.
+        نحن نوفر حلولاً متكاملة من البداية إلى النهاية من خلال تأمين المنتجات التي يحتاجها شركاؤنا في ليبيا
+        من المصنعين والموردين الموثوقين في مختلف أنحاء تركيا.
+      </p>
+      <br>
+      <p class="section-text">
+        من خلال الجمع بين المنتج المناسب والمورد المناسب والتخطيط اللوجستي المناسب، نوفر لعملائنا عملية تجارية
+        آمنة وسريعة وشفافة. كما نهدف إلى بناء شراكات تجارية طويلة الأمد ومربحة للطرفين عبر ربط المنتجين في تركيا بالمشترين في ليبيا.
+      </p>
+      <br>
+      <p class="section-text">
+        وبفضل خبرتنا القطاعية وشبكة الموردين الواسعة، نستجيب بفعالية لاحتياجات مختلف القطاعات ونرسخ مكانتنا
+        كشريك موثوق في مجال التجارة الدولية.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container grid">
+      <div class="card">
+        <h3>رؤيتنا</h3>
+        <p>
+          أن نكون شركة تجارة خارجية رائدة ومفضلة في المنطقة من خلال زيادة حجم التبادل التجاري بين تركيا وليبيا،
+          والتميز بالموثوقية والاحترافية، وتقديم حلول ذات قيمة مضافة لعملائنا عبر شراكات دولية قوية ونمو مستدام.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>مهمتنا</h3>
+        <p>
+          فهم احتياجات شركائنا في ليبيا بدقة وربطها بالقوة الإنتاجية الكبيرة في تركيا، وتقديم عمليات تجارية سريعة وموثوقة وشفافة،
+          مع ضمان تسليم المنتجات والخدمات عالية الجودة في الوقت المناسب ودون أي مشاكل، مع وضع رضا العملاء في المقام الأول.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <h3>خدماتنا</h3>
+      <div class="grid">
+        <div class="card">
+          <h4>تأمين الموردين</h4>
+          <p>نحدد الموردين والمصنعين الموثوقين في مختلف أنحاء تركيا ونربطهم باحتياجاتكم بشكل دقيق.</p>
+        </div>
+
+        <div class="card">
+          <h4>إدارة التصدير</h4>
+          <p>ندير جميع مراحل عملية التصدير باحترافية، من التوريد وحتى الشحن.</p>
+        </div>
+
+        <div class="card">
+          <h4>الخدمات اللوجستية والشحن</h4>
+          <p>نقدم حلولاً لوجستية فعالة لضمان وصول المنتجات إلى ليبيا بأمان وفي الوقت المحدد.</p>
+        </div>
+
+        <div class="card">
+          <h4>الاستشارات التجارية</h4>
+          <p>نوفر خدمات استشارية متخصصة لمساعدتكم على اتخاذ القرارات الصحيحة في عمليات التجارة الدولية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="operations">
+    <div class="container">
+      <h3>عملياتنا</h3>
+      <p class="section-text">
+        تشمل عملياتنا اختيار المنتجات، والتوريد، وفحص الجودة، والتغليف، والتخطيط اللوجستي.
+        ويتم فحص المنتجات التي يتم تأمينها من المصنعين في تركيا بعناية، ثم تجهيزها وفقاً للمعايير الدولية،
+        وتسليمها بأمان إلى عملائنا في ليبيا.
+      </p>
+      <div class="images">
+        <img src="container1.jpg" alt="العمليات 1">
+        <img src="container2.jpg" alt="العمليات 2">
+        <img src="container3.jpg" alt="العمليات 3">
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="container">
+      <h3>فريقنا</h3>
+      <p class="section-text">
+        يتمتع فريقنا بخبرة واسعة ومعرفة عميقة بعمليات التجارة الدولية، حيث يقوم بتحليل احتياجات العملاء بدقة
+        وتقديم الحلول الأنسب لهم. ومن خلال نهجنا المهني وتواصلنا القوي، نبني علاقات طويلة الأمد قائمة على الثقة مع شركائنا.
+      </p>
+      <div class="images">
+        <img src="team1.jpg" alt="الفريق 1">
+        <img src="team2.jpg" alt="الفريق 2">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h3>اتصل بنا</h3>
+      <p>📧 <a class="mail" href="mailto:sadiogludisticaretturizm@gmail.com">sadiogludisticaretturizm@gmail.com</a></p>
+      <p>📍 اسطنبول / تركيا</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © 2026 SADİOĞLU DIŞ TİCARET
+</footer>
+
+</body>
 </html>
-
