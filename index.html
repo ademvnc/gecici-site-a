@@ -327,6 +327,46 @@ footer{
     font-size:14px;
   }
 }
+
+/* FOTO GALERİ SLIDER */
+.gallery-slider{
+  position:relative;
+  max-width:100%;
+  margin-top:30px;
+  overflow:hidden;
+  border-radius:14px;
+}
+
+.gallery-track{
+  display:flex;
+  transition:transform 0.5s ease;
+}
+
+.gallery-item{
+  min-width:100%;
+}
+
+.gallery-item img{
+  width:100%;
+  height: 100%;
+  object-fit:cover;
+}
+
+.gallery-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.6);
+  color:#fff;
+  border:none;
+  padding:10px 14px;
+  cursor:pointer;
+  border-radius:50%;
+}
+
+.gallery-prev{ left:10px; }
+.gallery-next{ right:10px; }
+
 </style>
 </head>
 
@@ -354,6 +394,7 @@ footer{
     <a href="#services">Hizmetler</a>
     <a href="#operations">Operasyonlarımız</a>
     <a href="#team">Ekibimiz</a>
+    <a href="#fotogalery">Foto Galeri</a>
     <a href="#contact">İletişim</a>
   </nav>
 </header>
@@ -474,6 +515,40 @@ footer{
       </div>
     </div>
   </section>
+
+  <section id="fotogalery">
+    <div class="container">
+      <h3>Foto Galeri</h3>
+
+      <div class="gallery-slider">
+        <div class="gallery-track" id="galleryTrack">
+
+          <div class="gallery-item"><img src="1.jpg"></div>
+          <div class="gallery-item"><img src="2.jpg"></div>
+          <div class="gallery-item"><img src="3.jpg"></div>
+          <div class="gallery-item"><img src="4.jpg"></div>
+          <div class="gallery-item"><img src="5.jpg"></div>
+          <div class="gallery-item"><img src="6.jpg"></div>
+          <div class="gallery-item"><img src="7.jpg"></div>
+          <div class="gallery-item"><img src="8.jpg"></div>
+          <div class="gallery-item"><img src="9.jpg"></div>
+          <div class="gallery-item"><img src="10.jpg"></div>
+          <div class="gallery-item"><img src="11.jpg"></div>
+          <div class="gallery-item"><img src="12.jpg"></div>
+          <div class="gallery-item"><img src="13.jpg"></div>
+
+        </div>
+
+        <button class="gallery-btn gallery-prev" onclick="galleryMove(-1)">‹</button>
+        <button class="gallery-btn gallery-next" onclick="galleryMove(1)">›</button>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  
 
   <section id="contact">
     <div class="container">
@@ -599,6 +674,37 @@ footer{
     </div>
   </section>
 
+  <section id="fotogalery">
+    <div class="container">
+      <h3>Photo Gallery</h3>
+
+      <div class="gallery-slider">
+        <div class="gallery-track" id="galleryTrack">
+
+          <div class="gallery-item"><img src="1.jpg"></div>
+          <div class="gallery-item"><img src="2.jpg"></div>
+          <div class="gallery-item"><img src="3.jpg"></div>
+          <div class="gallery-item"><img src="4.jpg"></div>
+          <div class="gallery-item"><img src="5.jpg"></div>
+          <div class="gallery-item"><img src="6.jpg"></div>
+          <div class="gallery-item"><img src="7.jpg"></div>
+          <div class="gallery-item"><img src="8.jpg"></div>
+          <div class="gallery-item"><img src="9.jpg"></div>
+          <div class="gallery-item"><img src="10.jpg"></div>
+          <div class="gallery-item"><img src="11.jpg"></div>
+          <div class="gallery-item"><img src="12.jpg"></div>
+          <div class="gallery-item"><img src="13.jpg"></div>
+
+        </div>
+
+        <button class="gallery-btn gallery-prev" onclick="galleryMove(-1)">‹</button>
+        <button class="gallery-btn gallery-next" onclick="galleryMove(1)">›</button>
+      </div>
+
+    </div>
+  </section>
+
+
   <section id="contact">
     <div class="container">
       <h3>Contact</h3>
@@ -719,6 +825,37 @@ footer{
     </div>
   </section>
 
+  <section id="fotogalery">
+    <div class="container">
+      <h3>معرض الصور</h3>
+
+      <div class="gallery-slider">
+        <div class="gallery-track" id="galleryTrack">
+
+          <div class="gallery-item"><img src="1.jpg"></div>
+          <div class="gallery-item"><img src="2.jpg"></div>
+          <div class="gallery-item"><img src="3.jpg"></div>
+          <div class="gallery-item"><img src="4.jpg"></div>
+          <div class="gallery-item"><img src="5.jpg"></div>
+          <div class="gallery-item"><img src="6.jpg"></div>
+          <div class="gallery-item"><img src="7.jpg"></div>
+          <div class="gallery-item"><img src="8.jpg"></div>
+          <div class="gallery-item"><img src="9.jpg"></div>
+          <div class="gallery-item"><img src="10.jpg"></div>
+          <div class="gallery-item"><img src="11.jpg"></div>
+          <div class="gallery-item"><img src="12.jpg"></div>
+          <div class="gallery-item"><img src="13.jpg"></div>
+
+        </div>
+
+        <button class="gallery-btn gallery-prev" onclick="galleryMove(-1)">‹</button>
+        <button class="gallery-btn gallery-next" onclick="galleryMove(1)">›</button>
+      </div>
+
+    </div>
+  </section>
+
+
   <section id="contact">
     <div class="container">
       <h3>اتصل بنا</h3>
@@ -732,6 +869,26 @@ footer{
 <footer>
   © 2026 SADİOĞLU DIŞ TİCARET
 </footer>
+
+
+<script>
+let gIndex = 0;
+const gTrack = document.getElementById("galleryTrack");
+const gTotal = 13;
+
+function galleryMove(step){
+  gIndex += step;
+
+  if(gIndex < 0) gIndex = gTotal - 1;
+  if(gIndex >= gTotal) gIndex = 0;
+
+  gTrack.style.transform = `translateX(-${gIndex * 100}%)`;
+}
+
+setInterval(()=>{
+  galleryMove(1);
+}, 4000);
+</script>
 
 </body>
 </html>
