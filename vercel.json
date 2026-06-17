@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "status": 503,
+      "destination": "/maintenance.html"
+    }
+  ]
+}   
